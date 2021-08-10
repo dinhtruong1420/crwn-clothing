@@ -1,9 +1,25 @@
 import './App.css'
 import HomePage from './pages/homepage/homepage.component'
+import { Switch, Route, Link } from 'react-router-dom'
+const HatsPage = props => {
+  console.log(props)
+  return (
+    <div>
+      <h1>
+        HATS PAGE<br />
+        <button onClick={() => props.history.push('/')}>Hats</button>
+      </h1>
+    </div>
+  )
+}
 function App () {
   return (
     <div className='App'>
-      <HomePage />
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/hats' component={HatsPage} />
+      </Switch>
+
     </div>
   )
 }
